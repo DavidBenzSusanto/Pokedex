@@ -5,6 +5,7 @@ function SearchForm() {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const quickSearches = ["pikachu", "charizard", "gengar"];
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -36,6 +37,19 @@ function SearchForm() {
       </form>
 
       {error && <p className="status status-error">{error}</p>}
+
+      <div className="quick-searches">
+        {quickSearches.map((pokemonName) => (
+          <button
+            key={pokemonName}
+            type="button"
+            className="quick-search-button"
+            onClick={() => navigate(`/pokemon/${pokemonName}`)}
+          >
+            {pokemonName}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

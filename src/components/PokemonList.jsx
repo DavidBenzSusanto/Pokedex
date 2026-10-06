@@ -47,6 +47,7 @@ function PokemonList() {
         return (
           <li key={pokemon.name} className="pokemon-list-item">
             <Link to={`/pokemon/${pokemon.name}`} className="pokemon-link">
+              <span className="card-shine" aria-hidden="true"></span>
               <img
                 className="pokemon-sprite"
                 src={getSpriteUrl(id)}
